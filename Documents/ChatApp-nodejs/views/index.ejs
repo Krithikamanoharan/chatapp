@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat APP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="socket.io/socket.io.js"></script>
+    <style>
+        .container{margin:100px;},
+        .form-control col-lg-3 col-md-4 col-sm-4 col-xs-12{border-style: solid;}
+    </style>
+    <script>
+        var socket= io();
+        var data="";
+        socket.on('message',(msg)=>{
+            data+=msg+'<br>';
+            document.getElementById('rsv').innerHTML=data;
+            console.log(msg);
+        })
+        function send() {
+            var msg=document.getElementById('msg').value;
+            var name=document.getElementById('name').value;
+            // data+='<span style="color:red;">'+msg+'</span>'+'<br>';
+            // document.getElementById('rsv').innerHTML=data;
+            socket.send('<span style="color:red;">'+name+'</span>'+":"+msg);
+            document.getElementById('msg').value="";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="rsv"></div>
+        <br>
+        
+        <div class="row">
+            <input class="form-control col-lg-3 col-md-4 col-sm-4 col-xs-12 " type="text" name="name" placeholder="Name" id="name" value="<%= data.username %>">
+            <input class="form-control col-lg-8 col-md-7 col-sm-7 col-xs-12" type="text" name="msg" placeholder="Message" id="msg">
+            <br><br>
+            <input class="btn btn-outline-success col-xs-12 " type="text" name=submit" value="submit" onclick="send();">
+        </div>
+
+    </div>
+</body>
+</html>

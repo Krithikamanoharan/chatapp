@@ -1,0 +1,49 @@
+<html>
+    <title>HOME</title>
+    <head>
+<style>
+    body
+    {background-color: rgb(199, 169, 167); font-style: tahoma;padding: 20px;}
+    h1{text-align:center}
+    ul li{font-style: tahoma;font-size: 20px;margin:5px;}
+    .form-container{border-style: solid;justify-content: center;}
+    label{margin-top:60px;margin-left:30px;font-size: 30px;font-weight: bold;}
+    input{margin: 20px;width: 70%;height: 50px;}
+    button{
+    padding:10px;
+    margin-top:10px;
+    margin-left:20px;
+    width: 20%;
+    float: center;
+    background: #23282e;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+</style>
+    </head>
+    <body>
+        <h1>WELCOME, HAVE A GREAT DAY!</h1>
+        <HR noshade="noshade">
+        <h2>A list of dummy users</h2>
+        <ul>
+            <li>Krithika </li>
+            <li>Kavya</li>
+            <li>Prathiksha</li>
+        </ul>
+        <h2>Please fill the form</h2>
+        <div class="form-container">
+<form id="usersform" method="POST" action="/create-user">
+    <label for="username" name="username">Username</label><br>
+    <input type="text" name="username" placeholder="Enter username" ><br>
+    <label for="password" name="password">Password</label><br>
+    <input type="password" name="password" placeholder="Enter password" ><br>
+    <button type="submit" name="submit">Create user</button>
+    
+</form>
+        </div>
+    </body>
+</html>

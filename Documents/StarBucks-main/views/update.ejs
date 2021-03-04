@@ -1,0 +1,24 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+<body>
+  <%- include("./partials/nav.ejs") %>
+
+  <div class="create-blog content">
+    <form method="POST" action="/reservations/update">
+      <label for="title">Customer Name</label>
+      <input type="text" id="title" name="title" value="<%= blog.title %>" required>
+      <label for="snippet">Table size and Arrival time:</label>
+      <input type="text" id="snippet" name="snippet" required value="<%= blog.snippet %>" >
+      <label for="body">Special requests:</label>
+      <textarea id="body" name="body" required ><%= blog.body %></textarea>
+      <input type="hidden" id="id" name="id" value="<%= blog._id %>">
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <%- include("./partials/footer.ejs") %>
+</body>
+</html>
+
+

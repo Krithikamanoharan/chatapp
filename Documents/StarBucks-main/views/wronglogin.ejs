@@ -1,0 +1,16 @@
+<html lang="en">
+<%- include("./partials/header.ejs") -%>
+
+<form action="/loginform" method="POST">
+  <h2>Wrong details entered,Try again</h2>
+  <label for="email">Email</label>
+  <input type="text" name="email"  />
+  <div class="email error"></div>
+  <label for="password">Password</label>
+  <input type="password" name="password"  />
+  <div class="password error"></div>
+  <button type="submit">login</button>
+</form>
+</html>
+
+<%- include('partials/footer'); -%>
